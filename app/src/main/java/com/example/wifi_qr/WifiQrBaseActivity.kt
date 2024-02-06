@@ -6,6 +6,7 @@ import android.app.Activity
 import android.content.ContentValues
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
@@ -20,14 +21,13 @@ import androidx.navigation.NavGraph
 import androidx.navigation.fragment.NavHostFragment
 import com.example.wifi_qr.databinding.ActivityMainBinding
 import com.example.wifi_qr.dialog.OpenImageDialog
-import com.example.wifi_qr.util.Communicator
+import com.example.wifi_qr.network.WifiQrUtils
 import com.google.android.material.imageview.ShapeableImageView
 
-class QrBaseActivity : AppCompatActivity() {
+class WifiQrBaseActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private var imageUri: Uri? = null
-
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,12 +37,10 @@ class QrBaseActivity : AppCompatActivity() {
         setNav()
 
 
-
     }
 
 
-
-
+    //-------------------------------- SET NAVIGATION ------------------------------------//
 
     private fun setNav() {
         val navGraph: NavGraph
@@ -54,22 +52,44 @@ class QrBaseActivity : AppCompatActivity() {
         navGraph.apply {
             setStartDestination(R.id.createWifiFragment)
         }
-        navController.setGraph(navGraph,intent.extras)
+        navController.setGraph(navGraph, intent.extras)
     }
 
 
+    //-------------------------------- SET QR BITMAP DATA ------------------------------------//
 
-    private fun setImageUri(uri: Uri){
-        personImg?.setImageURI(uri)
+    var bitmap: Bitmap? = null
+    fun generateQr(
+        ssid: String,
+        encryption: String,
+        password: String,
+        middleLogoBitmap: Bitmap?,
+        isShowMiddleIcon: Boolean? = true
+    ) {
+        bitmap = WifiQrUtils
+            .generateWifiQrCode(
+                ssid,
+                encryption,
+                password,
+                middleLogoBitmap,
+                this, isShowMiddleIcon
+            )
+
     }
 
 
     //-------------------------------- IMAGE BOTTOM SHEET------------------------------------//
 
-    private var personImg : ShapeableImageView? = null
+    private var logoImg: ShapeableImageView? = null
 
-    fun showImgBs(personImage : ShapeableImageView) {
-        personImg = personImage
+
+    private fun setImageUri(uri: Uri) {
+        logoImg?.setImageURI(uri)
+    }
+
+
+    fun showImgBs(logoImage: ShapeableImageView) {
+        logoImg = logoImage
         OpenImageDialog(this, { onCapture() }, { onFolder() }).show()
     }
 
@@ -83,7 +103,6 @@ class QrBaseActivity : AppCompatActivity() {
                     add(Manifest.permission.WRITE_EXTERNAL_STORAGE)
                 }
             }.toTypedArray()
-
 
 
     }
@@ -108,8 +127,6 @@ class QrBaseActivity : AppCompatActivity() {
         }
 
 
-
-
     private fun allPermissionsGranted() = CAMERA_PERMISSIONS.all {
         ContextCompat.checkSelfPermission(
             baseContext, it
@@ -119,8 +136,6 @@ class QrBaseActivity : AppCompatActivity() {
     private fun requestCameraPermissions() {
         cameraPermissionLauncher.launch(CAMERA_PERMISSIONS)
     }
-
-
 
 
     //-------------------------------- CAPTURE IMAGE------------------------------------//

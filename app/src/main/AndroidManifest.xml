@@ -20,7 +20,7 @@
         android:theme="@style/Theme.Wifi_Qr"
         tools:targetApi="31">
         <activity
-            android:name=".QrBaseActivity"
+            android:name=".WifiQrBaseActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
