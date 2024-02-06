@@ -18,7 +18,7 @@
         android:textSize="@dimen/_11ssp"
         app:layout_constraintEnd_toEndOf="@+id/txt_hint2_img_upload"
         app:layout_constraintStart_toStartOf="@+id/txt_hint2_img_upload"
-        app:layout_constraintTop_toBottomOf="@+id/img_click_hint" />
+        app:layout_constraintTop_toBottomOf="@+id/img_logo_hint" />
 
     <TextView
         android:id="@+id/txt_hint2_img_upload"
@@ -34,7 +34,7 @@
         app:layout_constraintTop_toBottomOf="@+id/txt_hint_img_upload" />
 
     <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/img_click_hint"
+        android:id="@+id/img_logo_hint"
         android:layout_width="@dimen/_80sdp"
         android:layout_height="@dimen/_80sdp"
         android:layout_marginTop="@dimen/_40sdp"
@@ -69,7 +69,7 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/et_network_type"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/_16sdp"
@@ -78,9 +78,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_wifi_name">
 
-        <com.google.android.material.textfield.TextInputEditText
+        <com.google.android.material.textfield.MaterialAutoCompleteTextView
             android:layout_width="match_parent"
-            android:inputType="textAutoComplete"
+            android:inputType="none"
             android:layout_height="wrap_content" />
 
     </com.google.android.material.textfield.TextInputLayout>

@@ -22,7 +22,10 @@ import androidx.navigation.fragment.NavHostFragment
 import com.example.wifi_qr.databinding.ActivityMainBinding
 import com.example.wifi_qr.dialog.OpenImageDialog
 import com.example.wifi_qr.network.WifiQrUtils
+import com.example.wifi_qr.util.Communicator
+import com.example.wifi_qr.util.ImageUtils
 import com.google.android.material.imageview.ShapeableImageView
+import java.util.EventListener
 
 class WifiQrBaseActivity : AppCompatActivity() {
 
@@ -63,7 +66,6 @@ class WifiQrBaseActivity : AppCompatActivity() {
         ssid: String,
         encryption: String,
         password: String,
-        middleLogoBitmap: Bitmap?,
         isShowMiddleIcon: Boolean? = true
     ) {
         bitmap = WifiQrUtils
@@ -80,16 +82,19 @@ class WifiQrBaseActivity : AppCompatActivity() {
 
     //-------------------------------- IMAGE BOTTOM SHEET------------------------------------//
 
-    private var logoImg: ShapeableImageView? = null
 
+    private var middleLogoBitmap: Bitmap? = null
 
     private fun setImageUri(uri: Uri) {
-        logoImg?.setImageURI(uri)
+        middleLogoBitmap = ImageUtils.getBitmap(this,uri)
+        mListener.onCatchUri(uri)
     }
 
 
-    fun showImgBs(logoImage: ShapeableImageView) {
-        logoImg = logoImage
+    private lateinit var mListener: Communicator
+    fun showImgBs(listener: Communicator) {
+        if (!::mListener.isInitialized)
+            mListener = listener
         OpenImageDialog(this, { onCapture() }, { onFolder() }).show()
     }
 
