@@ -2,4 +2,9 @@
     <string name="app_name">Wifi_Qr</string>
     <string name="click_for_img">Capture for image</string>
     <string name="take_from_folder">Take from folder</string>
+    <string name="add_your_logo">Add your logo</string>
+    <string name="_txt_100_100_not_more_than_512kb">(100 X 100 px, Not more than 512 kb)</string>
+    <string name="network_name">Network Name</string>
+    <string name="ssid">SSID</string>
+    <string name="network_type">Network Type</string>
 </resources>

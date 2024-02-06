@@ -2,4 +2,7 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="indicator">#B52E2E</color>
+    <color name="hint">#656464</color>
+    <color name="text_clr">#303030</color>
 </resources>

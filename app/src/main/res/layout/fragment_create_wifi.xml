@@ -1,10 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.CreateWifiFragment">
 
+    <TextView
+        android:id="@+id/txt_hint_img_upload"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:gravity="center"
+        android:maxLines="1"
+        android:text="@string/add_your_logo"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_11ssp"
+        app:layout_constraintEnd_toEndOf="@+id/txt_hint2_img_upload"
+        app:layout_constraintStart_toStartOf="@+id/txt_hint2_img_upload"
+        app:layout_constraintTop_toBottomOf="@+id/img_click_hint" />
+
+    <TextView
+        android:id="@+id/txt_hint2_img_upload"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_8sdp"
+        android:gravity="center"
+        android:text="@string/_txt_100_100_not_more_than_512kb"
+        android:textColor="@color/indicator"
+        android:textSize="@dimen/_10ssp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_hint_img_upload" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/img_click_hint"
+        android:layout_width="@dimen/_80sdp"
+        android:layout_height="@dimen/_80sdp"
+        android:layout_marginTop="@dimen/_16sdp"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_img_add_qr"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.Small" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
