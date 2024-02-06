@@ -6,4 +6,12 @@
     </style>
 
     <style name="Theme.Wifi_Qr" parent="Base.Theme.Wifi_Qr" />
+
+    <style name="BottomSheetDialog" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/bottomSheetStyleWrapper</item>
+    </style>
+
+    <style name="bottomSheetStyleWrapper" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/bg_layout_border_r16_white_top_curve</item>
+    </style>
 </resources>

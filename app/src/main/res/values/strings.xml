@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">Wifi_Qr</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="click_for_img">Capture for image</string>
+    <string name="take_from_folder">Take from folder</string>
 </resources>
