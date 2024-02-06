@@ -84,8 +84,7 @@ class QrBaseActivity : AppCompatActivity() {
                 }
             }.toTypedArray()
 
-        private val CONTACT_PERMISSIONS = mutableListOf(Manifest.permission.READ_CONTACTS,
-            Manifest.permission.WRITE_CONTACTS).toTypedArray()
+
 
     }
 
@@ -108,30 +107,7 @@ class QrBaseActivity : AppCompatActivity() {
             }
         }
 
-    private val contactPermissionLauncher =
-        registerForActivityResult(
-            ActivityResultContracts.RequestMultiplePermissions()
-        )
-        { permissions ->
-            // Handle Permission granted/rejected
-            var permissionGranted = true
-            permissions.entries.forEach {
-                if (it.key in CONTACT_PERMISSIONS && !it.value)
-                    permissionGranted = false
-            }
-            if (!permissionGranted) {
-                requestContactPermissions(listener)
-            } else {
-                // direct navigate to respective screen
-                setResultToRet()
-            }
-        }
 
-    private fun setResultToRet() {
-        listener?.let {
-            it.onFetch()
-        }
-    }
 
 
     private fun allPermissionsGranted() = CAMERA_PERMISSIONS.all {
@@ -144,11 +120,7 @@ class QrBaseActivity : AppCompatActivity() {
         cameraPermissionLauncher.launch(CAMERA_PERMISSIONS)
     }
 
-    private var listener : Communicator? = null
-    fun requestContactPermissions(obj : Communicator?){
-        listener = obj
-        contactPermissionLauncher.launch(CONTACT_PERMISSIONS)
-    }
+
 
 
     //-------------------------------- CAPTURE IMAGE------------------------------------//
