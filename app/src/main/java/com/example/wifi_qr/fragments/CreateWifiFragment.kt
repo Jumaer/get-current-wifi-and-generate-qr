@@ -30,7 +30,7 @@ class CreateWifiFragment : Fragment() {
         binding.apply {
 
             imgLogoHint.setOnClickListener {
-                getLogoUri()
+                setLogoUri()
             }
 
 
@@ -39,10 +39,10 @@ class CreateWifiFragment : Fragment() {
         }
     }
 
-    private fun getLogoUri() {
+    private fun setLogoUri() {
         (activity as WifiQrBaseActivity).showImgBs(object : Communicator{
             override fun onCatchUri(uri: Uri) {
-
+                binding.imgLogoHint.setImageURI(uri)
             }
         })
     }
