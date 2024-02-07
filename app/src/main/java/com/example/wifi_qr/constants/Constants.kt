@@ -1,6 +1,7 @@
 package com.example.wifi_qr.constants
 
-import android.graphics.Bitmap
+
+
 
 object Constants {
     const val NET_TYPE_WEP = "WEP"

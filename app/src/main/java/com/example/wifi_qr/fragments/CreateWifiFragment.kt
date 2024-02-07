@@ -11,9 +11,12 @@ import android.widget.EditText
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import com.example.wifi_qr.WifiQrBaseActivity
+import com.example.wifi_qr.constants.Constants
 import com.example.wifi_qr.databinding.FragmentCreateWifiBinding
 import com.example.wifi_qr.network.NetworkUtils
 import com.example.wifi_qr.util.Communicator
+import com.example.wifi_qr.util.WifiPermissionUtils.checkPermissionSuccess
+import com.example.wifi_qr.util.WifiPermissionUtils.listWifiPermission
 
 
 class CreateWifiFragment : Fragment() {
@@ -100,28 +103,9 @@ class CreateWifiFragment : Fragment() {
      */
     private fun showPermissionsPopUp() {
         locationPermissionRequest.launch(
-            arrayOf(
-                Manifest.permission.ACCESS_WIFI_STATE,
-                Manifest.permission.ACCESS_NETWORK_STATE,
-                Manifest.permission.ACCESS_FINE_LOCATION,
-                Manifest.permission.ACCESS_COARSE_LOCATION
-            )
+            listWifiPermission
         )
     }
 
-    private var isAllPermissionGranted = false
-    /**
-     * Check all permissions has been added or not ..
-     * @return [Boolean] for result of success ..
-     * @param permissions is the map of success results according permissions ...
-     */
-    private fun checkPermissionSuccess(permissions: Map<String, Boolean>): Boolean {
-        isAllPermissionGranted = true
-        permissions.values.forEach {
-            if (!it) {
-                isAllPermissionGranted = false
-            }
-        }
-        return isAllPermissionGranted
-    }
+
 }
