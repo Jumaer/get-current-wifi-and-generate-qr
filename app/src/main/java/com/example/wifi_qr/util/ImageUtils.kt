@@ -23,6 +23,7 @@ object ImageUtils {
             ImageDecoder.decodeBitmap(ImageDecoder.createSource(context.contentResolver, uri)).copy(
                 Bitmap.Config.RGBA_F16, true)
         } else {
+            @Suppress("DEPRECATION")
             MediaStore.Images.Media.getBitmap(context.contentResolver, uri).copy(Bitmap.Config.RGBA_F16, true)
         }
     }

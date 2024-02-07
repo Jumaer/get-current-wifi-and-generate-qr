@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <TextView
+        android:id="@+id/tv_ready_hint"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/wifi_qr"
+        android:layout_marginTop="@dimen/_16sdp"
+        android:textColor="@color/text_clr"
+        android:textSize="@dimen/_14ssp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/img_no_data"
+        android:layout_width="@dimen/_140sdp"
+        android:layout_height="@dimen/_140sdp"
+        android:layout_margin="@dimen/_10sdp"
+        app:layout_constraintBottom_toTopOf="@id/tv_choose_a_device_hint"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_ready_hint"
+        />
+
+    <TextView
+        android:id="@+id/tv_choose_a_device_hint"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_16sdp"
+        android:layout_marginBottom="@dimen/_8sdp"
+        android:gravity="center"
+        android:text="@string/please_scan_qr_to_connect"
+        android:textColor="@color/indicator"
+        android:textSize="@dimen/_12ssp"
+        app:layout_constraintBottom_toTopOf="@id/btn_cancel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/_36sdp"
+        android:backgroundTint="@color/indicator"
+        android:layout_marginBottom="@dimen/_16sdp"
+        android:textAlignment="center"
+        android:paddingHorizontal="@dimen/_56sdp"
+        android:text="@string/close"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_11ssp"
+        app:cornerRadius="@dimen/_25sdp"
+        app:elevation="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+

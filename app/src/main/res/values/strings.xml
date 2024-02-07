@@ -10,4 +10,7 @@
     <string name="enter_password">Password</string>
     <string name="generate_qr_code">Generate QR Code</string>
     <string name="no_encription">No encription</string>
+    <string name="close">Close</string>
+    <string name="please_scan_qr_to_connect">Please scan QR to connect WIFI</string>
+    <string name="wifi_qr">WIFI QR</string>
 </resources>

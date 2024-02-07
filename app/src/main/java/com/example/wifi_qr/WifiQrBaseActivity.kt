@@ -64,9 +64,21 @@ class WifiQrBaseActivity : AppCompatActivity() {
     fun generateQr(
         ssid: String,
         encryption: String,
-        password: String,
-        isShowMiddleIcon: Boolean? = true
+        password: String
+
     ) {
+
+
+
+        var isShowMiddleIcon = true
+        if(middleLogoBitmap == null){
+            isShowMiddleIcon = false
+        }
+        /**
+         * You can use default icon by passing param true
+         * for isShowMiddleIcon var
+         */
+
         qrBitmap = WifiQrUtils
             .generateWifiQrCode(
                 ssid,
@@ -76,6 +88,11 @@ class WifiQrBaseActivity : AppCompatActivity() {
                 this, isShowMiddleIcon
             )
 
+        qrBitmap?.apply {
+            mListener?.onShowQr(this)
+        }
+
+
     }
 
 
@@ -84,14 +101,13 @@ class WifiQrBaseActivity : AppCompatActivity() {
 
     private fun setImageUri(uri: Uri) {
         middleLogoBitmap = ImageUtils.getBitmap(this,uri)
-        mListener.onCatchUri(uri)
+        mListener?.onCatchUri(uri)
     }
 
 
-    private lateinit var mListener: Communicator
-    fun showImgBs(listener: Communicator) {
-        if (!::mListener.isInitialized)
-            mListener = listener
+    var mListener: Communicator? = null
+    fun showImgBs() {
+
         OpenImageDialog(this, { onCapture() }, { onFolder() }).show()
     }
 
