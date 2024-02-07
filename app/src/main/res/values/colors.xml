@@ -2,9 +2,10 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="indicator">#B52E2E</color>
+    <color name="indicator">#009688</color>
     <color name="hint">#656464</color>
     <color name="text_clr">#303030</color>
     <color name="row_hint">#BEFDF7</color>
-
+    <color name="color_view_dark">#DFE5FF</color>
+    <color name="_F4F4F5">#F4F4F5</color>
 </resources>

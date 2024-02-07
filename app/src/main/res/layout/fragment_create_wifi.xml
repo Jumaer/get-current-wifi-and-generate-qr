@@ -47,70 +47,134 @@
 
 
 
-
-    <com.google.android.material.textfield.TextInputLayout
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-        android:layout_width="0dp"
-        android:id="@+id/et_wifi_name"
+    <TextView
+        android:id="@+id/txt_hint_network_name"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="@string/network_name"
-        android:layout_marginTop="@dimen/_32sdp"
-        android:layout_marginHorizontal="@dimen/_16sdp"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:layout_marginTop="@dimen/_16sdp"
+
+        android:gravity="center"
+        android:text="@string/network_name"
+        android:textColor="@color/indicator"
+        android:textSize="@dimen/_11ssp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_hint2_img_upload" />
+    <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+        android:textColor="@color/text_clr"
+        android:id="@+id/et_contain_network_name"
+        android:layout_width="match_parent"
+        android:background="@drawable/bg_custom_coner_edit_dbc_profile"
+        android:ellipsize="end"
+        android:gravity="center|start"
+        android:importantForAutofill="no"
+        android:maxLines="1"
+        android:paddingStart="@dimen/_10sdp"
+        android:paddingEnd="@dimen/_10sdp"
+        android:singleLine="true"
+        android:hint="@string/ssid"
+        android:textColorHint="@color/hint"
+        android:textSize="14sp"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:layout_height="@dimen/_42sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:visibility="visible"
+        android:layout_marginTop="@dimen/_5sdp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_hint2_img_upload">
+        app:layout_constraintTop_toBottomOf="@+id/txt_hint_network_name"
+        />
 
-        <com.google.android.material.textfield.MaterialAutoCompleteTextView
-            android:layout_width="match_parent"
-            android:inputType="textPersonName"
-            android:paddingStart="@dimen/_12sdp"
-            android:textColor="@color/text_clr"
-            android:textSize="@dimen/_12ssp"
-            android:layout_height="@dimen/_40sdp"
-            tools:ignore="RtlSymmetry" />
 
-    </com.google.android.material.textfield.TextInputLayout>
+    <TextView
+        android:layout_marginTop="@dimen/_8sdp"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:text="@string/network_type"
+        android:id="@+id/txt_hint_network_type"
+        android:gravity="center"
+        android:textSize="@dimen/_11ssp"
+        android:textColor="@color/indicator"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/et_contain_network_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/et_network_type"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+
+    <View
+        android:id="@+id/view_contain_network_type"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/_16sdp"
-        android:hint="@string/network_type"
+        android:layout_height="@dimen/_42sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:background="@drawable/bg_custom_coner_edit_dbc_profile"
+        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_wifi_name">
+        app:layout_constraintTop_toBottomOf="@+id/txt_hint_network_type" />
 
-        <com.google.android.material.textfield.MaterialAutoCompleteTextView
-            android:layout_width="match_parent"
-            android:inputType="none"
-            android:textColor="@color/text_clr"
-            android:textSize="@dimen/_12ssp"
-            android:layout_height="@dimen/_40sdp" />
 
-    </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/et_wifi_pass"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txt_wifi_net_type"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/_16sdp"
+        android:layout_marginHorizontal="@dimen/_4sdp"
+        android:hint="@string/no_encription"
+        android:textAlignment="textStart"
+        android:textAllCaps="false"
+        android:textColor="@color/text_clr"
+        android:textColorHint="@color/hint"
+        android:textSize="@dimen/_10ssp"
+        android:paddingStart="@dimen/_6sdp"
+        app:drawableEndCompat="@drawable/ic_arrow_down"
+        app:layout_constraintBottom_toBottomOf="@+id/view_contain_network_type"
+        app:layout_constraintEnd_toEndOf="@+id/view_contain_network_type"
+        app:layout_constraintTop_toTopOf="@+id/view_contain_network_type"
+        app:layout_constraintStart_toStartOf="@+id/view_contain_network_type"
+        app:strokeWidth="0dp"
+        tools:ignore="RtlSymmetry" />
+
+
+    <TextView
+        android:id="@+id/txt_hint_password"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:gravity="center"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:text="@string/enter_password"
+        android:textColor="@color/indicator"
+        android:textSize="@dimen/_11ssp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view_contain_network_type" />
+    <EditText
+        android:id="@+id/et_contain_password"
+        android:layout_width="0dp"
+        android:background="@drawable/bg_custom_coner_edit_dbc_profile"
+        android:ellipsize="end"
+        android:gravity="center|start"
+        android:importantForAutofill="no"
+        android:maxLines="1"
+        android:paddingStart="@dimen/_10sdp"
+        android:paddingEnd="@dimen/_10sdp"
+        android:singleLine="true"
         android:hint="@string/enter_password"
+        android:textColorHint="@color/hint"
+        android:textColor="@color/text_clr"
+        android:textSize="14sp"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:layout_height="@dimen/_42sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:visibility="visible"
+        android:layout_marginTop="@dimen/_5sdp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:passwordToggleEnabled="true"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_network_type">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:inputType="textPassword"
-            android:textColor="@color/text_clr"
-            android:textSize="@dimen/_12ssp"
-            android:layout_height="@dimen/_40sdp"/>
-
-    </com.google.android.material.textfield.TextInputLayout>
+        app:layout_constraintTop_toBottomOf="@+id/txt_hint_password"
+        />
 
 
 
