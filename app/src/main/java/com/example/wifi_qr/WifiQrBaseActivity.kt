@@ -6,7 +6,6 @@ import android.app.Activity
 import android.content.ContentValues
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
@@ -21,11 +20,11 @@ import androidx.navigation.NavGraph
 import androidx.navigation.fragment.NavHostFragment
 import com.example.wifi_qr.databinding.ActivityMainBinding
 import com.example.wifi_qr.dialog.OpenImageDialog
+import com.example.wifi_qr.lightData.DataStore.middleLogoBitmap
+import com.example.wifi_qr.lightData.DataStore.qrBitmap
 import com.example.wifi_qr.network.WifiQrUtils
 import com.example.wifi_qr.util.Communicator
 import com.example.wifi_qr.util.ImageUtils
-import com.google.android.material.imageview.ShapeableImageView
-import java.util.EventListener
 
 class WifiQrBaseActivity : AppCompatActivity() {
 
@@ -61,14 +60,14 @@ class WifiQrBaseActivity : AppCompatActivity() {
 
     //-------------------------------- SET QR BITMAP DATA ------------------------------------//
 
-    var bitmap: Bitmap? = null
+
     fun generateQr(
         ssid: String,
         encryption: String,
         password: String,
         isShowMiddleIcon: Boolean? = true
     ) {
-        bitmap = WifiQrUtils
+        qrBitmap = WifiQrUtils
             .generateWifiQrCode(
                 ssid,
                 encryption,
@@ -82,8 +81,6 @@ class WifiQrBaseActivity : AppCompatActivity() {
 
     //-------------------------------- IMAGE BOTTOM SHEET------------------------------------//
 
-
-    private var middleLogoBitmap: Bitmap? = null
 
     private fun setImageUri(uri: Uri) {
         middleLogoBitmap = ImageUtils.getBitmap(this,uri)
