@@ -60,10 +60,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_hint2_img_upload">
 
-        <com.google.android.material.textfield.TextInputEditText
+        <com.google.android.material.textfield.MaterialAutoCompleteTextView
             android:layout_width="match_parent"
             android:inputType="textPersonName"
-            android:layout_height="wrap_content" />
+            android:paddingStart="@dimen/_12sdp"
+            android:textColor="@color/text_clr"
+            android:textSize="@dimen/_12ssp"
+            android:layout_height="@dimen/_40sdp"
+            tools:ignore="RtlSymmetry" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -81,7 +85,9 @@
         <com.google.android.material.textfield.MaterialAutoCompleteTextView
             android:layout_width="match_parent"
             android:inputType="none"
-            android:layout_height="wrap_content" />
+            android:textColor="@color/text_clr"
+            android:textSize="@dimen/_12ssp"
+            android:layout_height="@dimen/_40sdp" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -100,13 +106,28 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:inputType="textPassword"
-            android:layout_height="wrap_content" />
+            android:textColor="@color/text_clr"
+            android:textSize="@dimen/_12ssp"
+            android:layout_height="@dimen/_40sdp"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
 
 
-
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_generate_qr"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_48sdp"
+        android:layout_margin="@dimen/_24sdp"
+        android:enabled="false"
+        android:text="@string/generate_qr_code"
+        android:textAllCaps="false"
+        android:textSize="@dimen/_12ssp"
+        app:cornerRadius="@dimen/_25sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

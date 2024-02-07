@@ -6,7 +6,7 @@ import com.example.wifi_qr.constants.Constants.NET_TYPE_WPA
 import com.example.wifi_qr.constants.Constants.NET_TYPE_WPA2
 
 object NetworkTypeUtils {
-
+    val netTypeMap = mutableMapOf<Int,Boolean>()
     private lateinit var networkType : MutableList<String>
     fun getNetworkType(): MutableList<String> {
         if(!::networkType.isInitialized){

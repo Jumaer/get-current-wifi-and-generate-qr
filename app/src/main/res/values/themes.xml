@@ -14,4 +14,6 @@
     <style name="bottomSheetStyleWrapper" parent="Widget.Design.BottomSheet.Modal">
         <item name="android:background">@drawable/bg_layout_border_r16_white_top_curve</item>
     </style>
+
+
 </resources>

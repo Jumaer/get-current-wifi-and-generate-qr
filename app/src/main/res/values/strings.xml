@@ -8,4 +8,5 @@
     <string name="ssid">SSID</string>
     <string name="network_type">Network Type</string>
     <string name="enter_password">Password</string>
+    <string name="generate_qr_code">Generate QR Code</string>
 </resources>

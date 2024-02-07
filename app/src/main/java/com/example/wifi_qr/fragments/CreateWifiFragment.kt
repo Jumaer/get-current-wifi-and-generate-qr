@@ -1,18 +1,25 @@
 package com.example.wifi_qr.fragments
 
-import android.Manifest
+import android.R
+import android.content.Context
 import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
+import android.widget.ArrayAdapter
+import android.widget.AutoCompleteTextView
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.widget.ListPopupWindow
+import androidx.core.widget.doAfterTextChanged
 import com.example.wifi_qr.WifiQrBaseActivity
-import com.example.wifi_qr.constants.Constants
+import com.example.wifi_qr.adapter.CustomAdapter
+import com.example.wifi_qr.constants.Constants.NET_TYPE_NO_ENC
 import com.example.wifi_qr.databinding.FragmentCreateWifiBinding
+import com.example.wifi_qr.network.NetworkTypeUtils.getNetworkType
+import com.example.wifi_qr.network.NetworkTypeUtils.netTypeMap
 import com.example.wifi_qr.network.NetworkUtils
 import com.example.wifi_qr.util.Communicator
 import com.example.wifi_qr.util.WifiPermissionUtils.checkPermissionSuccess
@@ -36,14 +43,9 @@ class CreateWifiFragment : Fragment() {
 
     private fun setViews() {
         binding.apply {
-
             imgLogoHint.setOnClickListener {
                 showBsForLogo()
             }
-
-
-
-
         }
     }
 
@@ -57,22 +59,7 @@ class CreateWifiFragment : Fragment() {
 
 
 
-//            generateQr(etWifiName.editText,
-//                etWifiPass.editText,
-//                etNetworkType.editText)
-    private fun generateQr(
-        wifiName: EditText?,
-        netType: EditText?,
-        wifiNetType: EditText?) {
 
-        val nName = wifiName?.text.toString()
-        val nNetType = netType?.text.toString()
-        val nPassword = wifiNetType?.text.toString()
-
-        (activity as WifiQrBaseActivity).generateQr(nName,nNetType, nPassword )
-
-
-    }
 
     private lateinit var locationPermissionRequest: ActivityResultLauncher<Array<String>>
 
@@ -106,6 +93,4 @@ class CreateWifiFragment : Fragment() {
             listWifiPermission
         )
     }
-
-
 }
